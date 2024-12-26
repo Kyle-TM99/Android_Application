@@ -69,14 +69,17 @@ public class MainActivity extends AppCompatActivity {
         }
         
         // 중복 아이디 체크
-
+        if (databaseHelper.useridCheck(userid)) {
+            Toast.makeText(this, "이미 사용중인 아이디입니다.", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
         // 회원 저장
         boolean success = databaseHelper.insertMember(userid, passwd, name, email);
         if(success) {
-            Toast.makeText(this,"회원가입 성공",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"회원가입 성공 🗿",Toast.LENGTH_SHORT).show();
         } else {
-            Toast.makeText(this,"다시 시도해 주세요",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"다시 시도해 주세요 😥",Toast.LENGTH_SHORT).show();
         }
     }
 
